@@ -1,7 +1,8 @@
-def have_two_digits_number_equal(password):
+def have_only_two_digits_number_equal(password):
     for index, digits in enumerate(password[0:-1]):
         if digits == password[index+1]:
-            return True
+            if (index == 0 or digits != password[index-1]) and (index==len(password)-2 or digits != password[index+2]):
+                return True
     return False
 
 
@@ -13,7 +14,7 @@ def never_decreased(password):
 
 
 def password_math_rules(password):
-    if never_decreased(str(password)) and have_two_digits_number_equal(str(password)):
+    if never_decreased(str(password)) and have_only_two_digits_number_equal(str(password)):
         return True
     return False
 

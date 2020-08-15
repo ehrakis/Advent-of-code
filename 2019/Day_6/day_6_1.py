@@ -5,6 +5,7 @@ class Planet:
         self.orbits = []
 
     def addOrbits(self, orbits):
+        orbits.orbitAround = self
         self.orbits.append(orbits)
 
 

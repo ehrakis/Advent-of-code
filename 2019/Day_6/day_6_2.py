@@ -5,6 +5,7 @@ class Planet:
         self.orbits = []
 
     def addOrbits(self, orbits):
+        orbits.orbitAround = self
         self.orbits.append(orbits)
 
 
@@ -38,8 +39,9 @@ with open('day_6_input.txt','r') as f:
                 planet_2_object.orbitArround = world[name_planet_1]
 
             world[name_planet_1].addOrbits(world[name_planet_2])
-            world[name_planet_2].orbitAround = world[name_planet_1]
 
+    you_to_com = route_to_com(world['YOU'])
+    san_to_com = route_to_com(world['SAN'])
     indexes = find_nearest_mutual_node(you_to_com,san_to_com)
     # It works because it count the planet wich 'you' is in orbit around and doesn't count the mutual planet
     print(len(you_to_com[1:indexes[0]]) + len(san_to_com[1:indexes[1]]))

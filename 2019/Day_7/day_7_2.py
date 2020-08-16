@@ -12,7 +12,6 @@ def get_value(instructions, mode, index):
 # a -> instructions list
 # setting -> the setting to apply to the program
 # input_param -> the input parameter send by other amplifiers
-
 def run_code(a, setting, input_param):
     index = 0
     a_length = len(a)
@@ -43,7 +42,6 @@ def run_code(a, setting, input_param):
 
         # Output
         elif op_code[-2:] == "04":
-            #print(a[a[index+1]])
             input_param = (yield a[a[index+1]])
             index += 2
 
